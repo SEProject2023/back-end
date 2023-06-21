@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+    {% if error_message %}
+        <script type="text/javascript">
+            alert("{{ error_message }}");
+            window.location.href = "/testapp/register.html";
+        </script>
+    {% elif success %}
+        <script type="text/javascript">
+            alert("注册成功,请登录");
+            window.location.href = "/testapp/index.html";
+        </script>
+    {% endif %} 
+
+    注册
+    <form action "." method="post" name="register">{% csrf_token %}
+        <input type="text" placeholder="请输入用户名" name="username"><br>
+        <input type="password" placeholder="请输入密码" name="password"><br>
+        <input type="password" placeholder="请再次输入密码" name="password2"><br>
+        <input type="submit" value="注册">
+    </form>
+    <hr>
+    {% comment %} 修改密码
+    <form action "." method="post">{% csrf_token %}
+        <input type="password" placeholder="请输入原密码" name="password"><br>
+        <input type="password" placeholder="请输入新密码" name="password2"><br>
+        <input type="password" placeholder="请再次输入新密码" name="password3"><br>
+        <input type="submit" value="提交" name="change">
+    </form> {% endcomment %}
+
+</body>
+</html>

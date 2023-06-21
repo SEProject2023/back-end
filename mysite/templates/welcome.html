@@ -10,7 +10,23 @@
     </style>
 </head>
 <body>
+{% if not user.is_authenticated %}
+    <script type="text/javascript">
+        alert("You are not logged in!");
+        window.location.href = "/testapp/index.html";
+    </script>
+{% endif %}
+
+
     <h1>Welcome to the site!</h1>
-    Your username:{{username}}
+    Your username:{{request.session.username}}
+    <br>
+    <div>
+        <a href="{% url 'testapp:user_logout'%}">&nbsp;&nbsp;&nbsp;Logout&nbsp;&nbsp;</a>
+    </div>
+    <hr>
+    <div>
+        <a href="{% url 'testapp:register'%}">修改密码&nbsp;&nbsp; </a>
+    </div>
 </body>
 </html>
