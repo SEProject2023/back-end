@@ -25,13 +25,13 @@
         <input type="submit" value="注册">
     </form>
     <hr>
-    {% comment %} 修改密码
+    修改密码
     <form action "." method="post">{% csrf_token %}
         <input type="password" placeholder="请输入原密码" name="password"><br>
         <input type="password" placeholder="请输入新密码" name="password2"><br>
         <input type="password" placeholder="请再次输入新密码" name="password3"><br>
         <input type="submit" value="提交" name="change">
-    </form> {% endcomment %}
+    </form>
 
 </body>
 </html>

@@ -35,7 +35,7 @@ def register(request):
     if request.method == 'GET':
         return render(request, 'register.html')
     
-    if request.method == "POST":
+    if request.method == "POST" and request.POST.getlist('register'):
         username = request.POST.get("username")
         password = request.POST.get("password")
         password2 = request.POST.get("password2")
@@ -50,5 +50,22 @@ def register(request):
             User.objects.create(username=username, password=make_password(password))
             request.session['username'] = username
             return render(request, 'register.html', {"success":True})
-    
+    elif request.method == "POST" and request.POST.getlist('change'):
+        password = request.POST.get("password")
+        password2 = request.POST.get("password2")
+        password3 = request.POST.get("password3")
+
+        if password2 == password3:
+            user = User.objects.get(username=request.session.get('username'))
+
+            if user.check_password(password):
+                User.objects.filter(username=request.session.get('username')).update(password=make_password(password2))
+                return render(request, 'register.html', {"success":True})
+            else:
+                error_message = "原密码错误"
+                return render(request, 'register.html', {"error_message": error_message , "state":False})
+        else:
+            error_message = "两次密码不一致"
+            return render(request, 'register.html', {"error_message": error_message , "state":False})
+
     return render(request, 'register.html')
