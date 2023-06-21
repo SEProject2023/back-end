@@ -69,3 +69,7 @@ def register(request):
             return render(request, 'register.html', {"error_message": error_message , "state":False})
 
     return render(request, 'register.html')
+
+def cancel(request):
+    User.objects.filter(username=request.session.get('username')).delete()
+    return render(request,'index.html', {"error_message":"注销成功"})
