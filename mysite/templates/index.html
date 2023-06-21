@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>index~~~~~</h1>
+
+    <form action="." method="post" id="login">{% csrf_token %}
+        <input type="text" name="username" placeholder="请输入用户名"><br>
+        <input type="password" name="password" placeholder="请输入密码"><br>
+        <input type="submit" value="登录">
+    </form>
+
+    
+</body>
+</html>
