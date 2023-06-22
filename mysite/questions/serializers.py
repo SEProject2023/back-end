@@ -3,9 +3,8 @@ from .models import Question
 from .models import User
 
 class QuestionSerializer(serializers.ModelSerializer):
-    user_id = serializers.PrimaryKeyRelatedField(source='user', queryset=User.objects.all())
-    user_name = serializers.StringRelatedField(source='user.username')
+    asker = serializers.StringRelatedField(source='user.username')  # 将字段名从user_name改为asker
     class Meta:
         model = Question
         #下面就是api给前端的返回值
-        fields = ['user_id', 'user_name', 'title', 'description', 'tags']  # 
+        fields = ['asker', 'title', 'description']  # 从fields中移除'user_id'和'tags'
