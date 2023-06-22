@@ -9,12 +9,18 @@ from django.http import HttpResponse, HttpResponseNotFound, Http404
 
 
 class QuestionCreateView(APIView):
+    queryset = Question.objects.all()
+    serializer_class = QuestionSerializer
     def post(self, request, format=None):
-        serializer = QuestionSerializer(data=request.data)
+        serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            question = serializer.save()  # `save` 方法返回模型实例
+            return Response({
+                'question_id': question.id,  # 获取问题ID
+                'status': 'Question created successfully'  # 自定义状态信息
+            }, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class QuestionDetailView(APIView):
     def get_object(self, pk):
