@@ -29,6 +29,12 @@
 #### Finished list:
 
 user_auth：用户注册、登陆、登出模块
+questions：创建问题、查看问题模块
+answers：创建回答、查看回答模块
 
 #### Todo List:
+大模型解答模块
+首页模块
+个人主页模块
+标签分类模块
 

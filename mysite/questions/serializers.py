@@ -9,4 +9,4 @@ class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
         #下面就是api给前端的返回值
-        fields = ['asker', 'title', 'description', 'answers']  # 从fields中移除'user_id'和'tags'
+        fields = ['asker', 'title', 'description', 'answers'] 
