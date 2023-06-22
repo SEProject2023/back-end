@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # 'testapp',
     'user_auth',
     'questions',
+    'answers',
 ]
 
 MIDDLEWARE = [
