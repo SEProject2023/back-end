@@ -21,4 +21,5 @@ urlpatterns = [
     # path('testapp/', include(('testapp.urls', 'testapp'),namespace='testapp')),
     path('api/users/', include('user_auth.urls')),
     path('api/', include('questions.urls')),
+    path('api/', include('answers.urls')),
 ]
