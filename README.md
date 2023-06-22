@@ -16,11 +16,19 @@
 
 之后就可以正常开发了
 
+### 项目结构说明
+
+`./testapp/`是练手用的测试模块，已废弃
+`./mysite/templates/`下面的模板未前后端分离，已废弃
 
 
 
-### Finished list:
 
-helloworld
-### Todo List:
+
+
+#### Finished list:
+
+user_auth：用户注册、登陆、登出模块
+
+#### Todo List:
 
