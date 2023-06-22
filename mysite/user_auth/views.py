@@ -5,7 +5,7 @@ from rest_framework import status
 from django.contrib.auth.hashers import make_password
 from .models import User
 from .serializers import UserSerializer
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
@@ -28,3 +28,8 @@ class LoginView(APIView):
             login(request, user)
             return Response({"detail": "Login Successful"}, status=status.HTTP_200_OK)
         return Response({"detail": "Invalid credentials"}, status=status.HTTP_400_BAD_REQUEST)
+    
+class LogoutView(APIView):
+    def post(self, request):
+        logout(request)
+        return Response({"status": "success", "message": "User logged out"}, status=status.HTTP_200_OK)
