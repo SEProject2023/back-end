@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Answer
+from .models import Answer, ChatglmAnswer
 from .models import User
 from questions.models import Question
 
@@ -17,3 +17,9 @@ class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
         fields = ['content', 'responder', 'time'] # 'user_id', 'question_id', 
+
+
+class ChatglmAnswerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ChatglmAnswer
+        fields = ['content', 'time']
