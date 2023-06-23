@@ -47,7 +47,8 @@ class GetChatglmAnswerView(APIView):
             return Response({'error': 'Question not found.'}, status=status.HTTP_404_NOT_FOUND)
 
         # 将问题转换为查询语句
-        query = {"prompt": question.title, "history": []}
+        prompt = question.title + ":\n" + question.description + "\n" 
+        query = {"prompt": prompt, "history": []}
 
         # 向大模型服务器发送查询请求
         response = requests.post("http://222.200.185.183:23623", json=query)
