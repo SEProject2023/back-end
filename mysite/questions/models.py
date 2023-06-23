@@ -7,7 +7,7 @@ User = get_user_model()
 # Create your models here.
 
 class Question(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='questions', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     description = models.TextField()
     tags = models.CharField(max_length=200)

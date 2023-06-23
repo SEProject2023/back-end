@@ -20,6 +20,11 @@ class AnswerSerializer(serializers.ModelSerializer):
 
 
 class ChatglmAnswerSerializer(serializers.ModelSerializer):
+    response = serializers.CharField(source='content')
+    status = serializers.SerializerMethodField()
     class Meta:
         model = ChatglmAnswer
-        fields = ['content', 'time']
+        fields = ['response', 'status', 'time']
+
+    def get_status(self, obj):
+        return 200  # 这里假设大模型服务器的状态码总是200

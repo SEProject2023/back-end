@@ -62,7 +62,7 @@ class GetChatglmAnswerView(APIView):
             big_model_answer.save()
 
             # 创建序列化器
-            serializer = ChatglmAnswerSerializer(big_model_answer)
+            serializer = ChatglmAnswerSerializer(big_model_answer, context={'status': response.status_code})
 
             # 返回大模型的回答给前端
             return Response(serializer.data, status=status.HTTP_200_OK)
