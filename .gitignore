@@ -1,3 +1,5 @@
 *.pyc
 cookies.txt
 test.html
+mysite/testapp/
+mysite/templates/
