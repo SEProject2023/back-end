@@ -15,3 +15,8 @@ class AnswerListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
         fields = ['id', 'content', 'responder']
+
+class ChatglmAnswerListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Answer
+        fields = ['id', 'content']
