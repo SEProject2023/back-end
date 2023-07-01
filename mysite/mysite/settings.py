@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'questions',
     'answers',
     'homepage',
+    'user_details',
 ]
 
 MIDDLEWARE = [
