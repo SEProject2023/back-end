@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'answers',
     'homepage',
     'user_details',
+    'search',
 ]
 
 MIDDLEWARE = [
