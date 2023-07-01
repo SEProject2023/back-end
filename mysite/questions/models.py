@@ -12,7 +12,7 @@ class Question(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     tags = models.CharField(max_length=200)
-    time = models.DateTimeField(auto_now_add=True, default=datetime.now)
+    time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
