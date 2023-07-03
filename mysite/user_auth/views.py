@@ -15,8 +15,11 @@ class RegisterView(APIView):
         data['password'] = make_password(data['password'])
         serializer = UserSerializer(data=data)
         if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            user = serializer.save()
+            return Response({
+                'user_id': user.id, 
+                'status': 'Registration successful'
+            }, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class LoginView(APIView):
