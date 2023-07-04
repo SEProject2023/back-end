@@ -11,7 +11,7 @@ class Question(models.Model):
     user = models.ForeignKey(User, related_name='questions', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     description = models.TextField()
-    tags = models.CharField(max_length=200)
+    tags = models.CharField(max_length=200, blank=True)
     time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
