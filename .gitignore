@@ -1,5 +1,7 @@
+.env
 *.pyc
 cookies.txt
 test.html
+test.json
 mysite/testapp/
 mysite/templates/
